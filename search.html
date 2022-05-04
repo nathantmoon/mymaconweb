@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Courses | MyMaconLog</title>
+    <script src="https://kit.fontawesome.com/d2f0974a28.js" crossorigin="anonymous"></script>
+    <script src="./FileSaver.js"></script>
+    <script src="data.js" async></script>
+    <script src="sitefncts.js"></script>
+    <script src="searchScript.js" async></script>
+    
+
+    <link rel="stylesheet" href="siteStyles.css" class="">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Side Nav Bar-->
+        <div class="sidenav" id="sidenav">
+            <div class="logo">
+                <img src="images/rmclogocolor.png" alt="logo">
+                <h3>MyMaconLog</h3>
+            </div>
+            <div class="menu-options">
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href="./dash.html">
+                                <span class="option-icon"><i class="fas fa-th-large"></i></span>
+                                <span class="option-label">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./courselog.html">
+                                <span class="option-icon"><i class="fas fa-clipboard-list"></i></span>
+                                <span class="option-label">CourseLog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./search.html" class="active">
+                                <span class="option-icon"><i class="fas fa-search-plus"></i></span>
+                                <span class="option-label">Search Courses</span>
+                            </a>
+                        </li><!--
+                        <li>
+                            <a href="#">
+                                <span class="option-icon"><i class="fas fa-graduation-cap"></i></span>
+                                <span class="option-label">Curriculum Guide</span>
+                            </a>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class="menu-btns">
+                    <button type="button" class="primary-btn" id="end-btn">
+                        <span class="button-icon"><i class="fas fa-sign-out-alt fa-rotate-180"></i></span>
+                        <span>End Session</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <button id="menu-btn"><i class="fas fa-bars"></i></button>
+            <div class="grid" id="search-grid">
+                <div class="content-area" id="search-left">
+                    <div class="content-box">
+                        <div class="content-box-title">
+                            <h1>Search Filters</h1>
+                        </div>
+                        <div class="content-box-content search-options">
+                            <div class="search-option">
+                                <label for="designation-select">Choose Designation:</label>
+                                <select name="designations" id="designation-select">
+                                    <option value="ALL" selected>All</option>
+                                    <optgroup label="Effective Communication">
+                                        <option value="WC">Written Communication</option>
+                                        <option value="CC">Communication in Context (CC)</option>
+                                        <option value="FL">Foreign Language Communication (FL)</option>
+                                    </optgroup>
+                                    <optgroup label="Pillar Designations">
+                                        <option value="AE">Aesthetic Expression (AE)</option>
+                                        <option value="CL">Civic Life (CL)</option>
+                                        <option value="GE">Global Experiences (GE)</option>
+                                        <option value="HC">The Human Condition (HC)</option>
+                                        <option value="QS">Quantitative and Symbolic Reasoining (QS)</option>
+                                        <option value="SP">The Scientific Process (SP)</option>
+                                    </optgroup>
+                                    <optgroup label="Secondary Pillar Designations">
+                                        <option value="WA">Writing Attentive (WA)</option>
+                                        <option value="SA">Speaking Attentive (SA)</option>
+                                        <option value="SS">Social Sciences (SS)</option>
+                                        <option value="HU">Humanities (HU)</option>
+                                        <option value="NS">Natural Science (NS)</option>
+                                    </optgroup>
+                                    <optgroup label="Cross-Area Designations">
+                                        <option value="EL">Experiential Learning (EL)</option>
+                                        <option value="NW">Non-Western Culture (NW)</option>
+                                        <option value="DI">Diversity and Inclusion (DI)</option>
+                                        <option value="CS">Capstone Experience (CS)</option>
+                                    </optgroup>
+                                    <optgroup label="Other">
+                                        <option value="WN">Wellness</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="search-option">
+                                <label for="department-select">Choose Department:</label>
+                                <select name="departments" id="department-select">
+                                    <option value="ALL" selected>All</option>
+                                    <option value="Accounting">Accounting (ACCT)</option>
+                                    <option value="Applied Mathematics">Applied Mathematics (APMA)</option>
+                                    <option value="Archaeology">Archaeology (ARCH)</option>
+                                    <option value="Art History">Art History (ARTH)</option>
+                                    <option value="Arts Management">Arts Management (AMGT)</option>
+                                    <option value="Asian Studies">Asian Studies (ASTU)</option>
+                                    <option value="Astronomy">Astronomy/Astrophysics (ASTR)</option>
+                                    <option value="Behavioral Neuroscience">Behavioral Neuroscience (NSCI)</option>
+                                    <option value="Biology">Biology (BIOL)</option>
+                                    <option value="Black Studies">Black Studies (BLST)</option>
+                                    <option value="Business">Business (BUSN)</option>
+                                    <option value="Chemistry">Chemistry (CHEM)</option>
+                                    <option value="Chinese Studies">Chinese Studies (CHIN)</option>
+                                    <option value="Classical Studies">Classical Studies (CLAS)</option>
+                                    <option value="Communication Studes">Communication Studies (COMM)</option>
+                                    <option value="Computer Science">Computer Science (CSCI)</option>
+                                    <option value="Criminology">Criminology (CRIM)</option>
+                                    <option value="Cybersecurity">Cybersecurity (CSEC)</option>
+                                    <option value="Economics">Economics (ECON)</option>
+                                    <option value="Education">Education (EDUC)</option>
+                                    <option value="Elementary Education">Elementary Education (ELED)</option>
+                                    <option value="Engineering">Engineering (ENGR)</option>
+                                    <option value="Engineering Physics">Engineering Physics (EPHY)</option>
+                                    <option value="English">English (ENGL)</option>
+                                    <option value="Environmental Studies">Environmental Studies (EVST)</option>
+                                    <option value="Film">Film Studies (FILM)</option>
+                                    <option value="Foreign Lit in English Translation">Foreign Lit in English Translation (FLET)</option>
+                                    <option value="French">French (FREN)</option>
+                                    <option value="Gender, Sexuality & Women's Studies">Gender, Sexuality & Women's Studies (GSWS)</option>
+                                    <option value="General Education">General Education (GNED)</option>
+                                    <option value="Geology">Geology (GEOL)</option>
+                                    <option value="German">German (GERM)</option>
+                                    <option value="Greek">Greek (GREK)</option>
+                                    <option value="History">History (HIST)</option>
+                                    <option value="Honors Program">Honors Program (HONR)</option>
+                                    <option value="International Studies">International Studies (INST)</option>
+                                    <option value="Internship-Paid">Internship-Paid (ITRN)</option>
+                                    <option value="Japanese Studies">Japanese Studies (JAPN)</option>
+                                    <option value="Journalism">Journalism (JOUR)</option>
+                                    <option value="Languages">Languages (LANG)</option>
+                                    <option value="Latin">Latin (LATN)</option>
+                                    <option value="Mathematics">Mathematics (MATH)</option>
+                                    <option value="Music">Music (MUSC)</option>
+                                    <option value="Nursing">Nursing (NURS)</option>
+                                    <option value="Nursing Interprofessional">Nursing Interprofessional (NUIP)</option>
+                                    <option value="Philosophy">Philosophy (PHIL)</option>
+                                    <option value="Physical Education">Physical Education (PHED)</option>
+                                    <option value="Physics">Physics (PHYS)</option>
+                                    <option value="Political Science">Political Science (PSCI)</option>
+                                    <option value="Psychology">Psychology (PSYC)</option>
+                                    <option value="Religious Studies">Religious Studies (RELS)</option>
+                                    <option value="Sociology">Sociology (SOCI)</option>
+                                    <option value="Spanish">Spanish (SPAN)</option>
+                                    <option value="Studio Arts">Studio Arts (STAR)</option>
+                                    <option value="Theatre">Theatre (THEA)</option>
+                                    <option value="Writing">Writing (WRIT)</option>
+                                    <option value="Yellow Jacket Success Strategies">Yellow Jacket Success Strategies</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="primary-btn search-btn" type="button" id="search-submit">
+                            <span><i class="fas fa-search"></i></span>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                    <div class="content-box" id="add-panel">
+                        <div class="content-box-title">
+                            <h1>Add Courses</h1>
+                        </div>
+                        <div class="content-box-content" id="add-panel-content">
+                            <p><span id="num-selected">0</span> Courses Selected</p>
+                            <div class="add-btns">
+                                <button class="secondary-btn add-panel-btn" id="discard-btn">
+                                    <span><i class="fas fa-trash-alt"></i></span>
+                                    <span>Discard</span>
+                                </button>
+                                <button class="primary-btn add-panel-btn" id="add-btn">
+                                    <span><i class="fas fa-plus-circle"></i></span>
+                                    <span>Add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-area" id="search-right">
+                    <div class="content-box">
+                        <div class="content-box-title">
+                            <h1>Search Results</h1>
+                        </div>
+                        <div class="content-box-content" id="search-content">
+                            <p id="search-parameters">
+                                Showing results for: Designation = "<span id="desParam">All</span>"
+                                , Department = "<span id="deptParam">All</span>"
+                            </p>
+                            <div class="results-row table-header">
+                                <span class="results-select results-header 
+                                results-column"><i class="far fa-check-square"></i></span>
+                                <span class="results-code results-header 
+                                results-column">Code</span> 
+                                <span class="results-name results-header 
+                                results-column">Name</span>
+                                <span class="results-designations 
+                                results-header results-column">Designations</span>
+                            </div>
+                            <div class="results-box"></div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

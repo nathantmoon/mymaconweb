@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashboard | MyMaconLog</title>
+    <script src="https://kit.fontawesome.com/d2f0974a28.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="siteStyles.css">
+    <script src="./FileSaver.js"></script>
+    <script src="./sitefncts.js"></script>
+    <script src="./match.js"></script>
+    <script src="dashScript.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav" id="sidenav">
+            <div class="logo">
+                <img src="images/rmclogocolor.png" alt="logo">
+                <h3>MyMaconLog</h3>
+            </div>
+            <div class="menu-options">
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href="./dash.html" class="active">
+                                <span class="option-icon"><i class="fas fa-th-large"></i></span>
+                                <span class="option-label">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./courselog.html">
+                                <span class="option-icon"><i class="fas fa-clipboard-list"></i></span>
+                                <span class="option-label">CourseLog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./search.html">
+                                <span class="option-icon"><i class="fas fa-search-plus"></i></span>
+                                <span class="option-label">Search Courses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-btns">
+                    <button type="button" class="primary-btn" id="end-btn">
+                        <span class="button-icon"><i class="fas fa-sign-out-alt fa-rotate-180"></i></span>
+                        <span>End Session</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <main class="main">
+            <button id="menu-btn"><i class="fas fa-bars"></i></button>
+            <div class="grid" id="dash-grid">
+                <div class="content-area" id="dash-left">
+                    <div class="content-box">
+                        <div class="content-box-title">
+                            <h1>Progress Report</h1>
+                        </div>
+                        <div class="progress-trackers">
+                            <div class="tracker">
+                                <div class="tracker-title-row">
+                                    <div class="tracker-label">Overall Curriculum</div>
+                                    <div class="tracker-percent" id="overall-percent">0%</div>
+                                </div>
+                                <div class="progress-bar-track">
+                                    <div class="progress-bar" id="progress-bar-overall"></div>
+                                </div>
+                            </div>
+                            <div class="tracker">
+                                <div class="tracker-title-row">
+                                    <div class="tracker-label">Effective Communication</div>
+                                    <div class="tracker-percent" id="effComm-percent">0%</div>
+                                </div>
+                                <div class="progress-bar-track">
+                                    <div class="progress-bar" id="progress-bar-effComm"></div>
+                                </div>
+                            </div>
+                            <div class="tracker">
+                                <div class="tracker-title-row">
+                                    <div class="tracker-label">Pillars of the Liberal Arts</div>
+                                    <div class="tracker-percent" id="pillars-percent">0%</div>
+                                </div>
+                                <div class="progress-bar-track">
+                                    <div class="progress-bar" id="progress-bar-pillars"></div>
+                                </div>
+                            </div>
+                            <div class="tracker">
+                                <div class="tracker-title-row">
+                                    <div class="tracker-label">Secondary Pillar Requirements</div>
+                                    <div class="tracker-percent" id="pillarsSecond-percent">0%</div>
+                                </div>
+                                <div class="progress-bar-track">
+                                    <div class="progress-bar" id="progress-bar-pillarsSecond"></div>
+                                </div>
+                            </div>
+                            <div class="tracker">
+                                <div class="tracker-title-row">
+                                    <div class="tracker-label">Cross-Area Requirements</div>
+                                    <div class="tracker-percent" id="cross-area-percent">0%</div>
+                                </div>
+                                <div class="progress-bar-track">
+                                    <div class="progress-bar" id="progress-bar-crossArea"></div>
+                                </div>
+                            </div>
+                            <div class="tracker">
+                                <div class="tracker-title-row">
+                                    <div class="tracker-label">Wellness</div>
+                                    <div class="tracker-percent" id="wellness-percent">0%</div>
+                                </div>
+                                <div class="progress-bar-track">
+                                    <div class="progress-bar" id="progress-bar-wellness"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-area" id="dash-right">
+                    <div class="content-box" id="welcome">
+                        <img src="images/dashboardGraphic.svg" alt="hive graphic" height="155">
+                        <h3>Hello, <span id="username"></span>!</h3>
+                        <p>Welcome to your dashboard. Scroll down to see your Curriculum Checklist and Progress Report. Remember to update your CourseLog before you continue!</p>
+                    </div>
+                    <div id="welcome-btns">
+                        <button class="primary-btn welcome-btn" id="dash-add-btn">
+                            <span class="btn-icon"><i class="fas fa-plus-circle"></i></span>
+                            <span class="btn-label">Add New Courses</span>
+                        </button>
+                        <button class="primary-btn welcome-btn" id="dash-edit-btn">
+                            <span class="btn-icon"><i class="fas fa-edit"></i></span>
+                            <span class="btn-label">Edit CourseLog</span>
+                        </button>
+                    </div>
+                    <div class="content-box" id="checklist">
+                        <div class="content-box-title">
+                            <h1>Curriculum Checklist</h1>
+                        </div>
+                        <div class="content-box-content checklist-content">
+                            <div class="checklist-row title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Effective Communication</span>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Written Communication</span>
+                            </div>
+                            <div class="checklist-course-list" id="wc-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Communication in Context</span>
+                            </div>
+                            <div class="checklist-course-list" id="cc-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Foreign Language</span>
+                            </div>
+                            <div class="checklist-course-list" id="fl-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Pillars of the Liberal Arts</span>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Aesthetic Expression (AE)</span>
+                            </div>
+                            <div class="checklist-course-list" id="ae-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Civic Life (CL)</span>
+                            </div>
+                            <div class="checklist-course-list" id="cl-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Global Experiences (GE)</span>
+                            </div>
+                            <div class="checklist-course-list" id="ge-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">The Human Condition (HC)</span>
+                            </div>
+                            <div class="checklist-course-list" id="hc-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Quantitative and Symbolic Reasoning (QS)</span>
+                            </div>
+                            <div class="checklist-course-list" id="qs-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">The Scientific Process (SP)</span>
+                            </div>
+                            <div class="checklist-course-list" id="sp-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Secondary Pillar Requirements</span>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Writing Attentive (WA)</span>
+                            </div>
+                            <div class="checklist-course-list" id="wa-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Speaking Attentive (SA)</span>
+                            </div>
+                            <div class="checklist-course-list" id="sa-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Social Science (SS)</span>
+                            </div>
+                            <div class="checklist-course-list" id="ss-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Humanities (HU)</span>
+                            </div>
+                            <div class="checklist-course-list" id="hu-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Natural Science (NS)</span>
+                            </div>
+                            <div class="checklist-course-list" id="ns-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Cross-Area Requirements</span>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Experiential Learning (EL)</span>
+                            </div>
+                            <div class="checklist-course-list" id="el-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Non-Western Culture (NW)</span>
+                            </div>
+                            <div class="checklist-course-list" id="nw-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Diversity & Inclusion (DI)</span>
+                            </div>
+                            <div class="checklist-course-list" id="di-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row sub-title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Capstone Experience (CS)</span>
+                            </div>
+                            <div class="checklist-course-list" id="cs-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row title-row">
+                                <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                <span class="title-label">Wellness</span>
+                            </div>
+                            <div class="checklist-course-list" id="wellness-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                            <div class="checklist-row title-row">
+                                <span class="status-icon"><i class="far fa-check-circle"></i></span>
+                                <span class="title-label">Electives</span>
+                            </div>
+                            <div class="checklist-course-list" id="elective-course-list">
+                                <div class="checklist-row empty-row">
+                                    <span class="status-icon"><i class="far fa-times-circle"></i></span>
+                                    <span class="underline-empty"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+</body>
+<!---
+<script>
+    var menu_btn = document.getElementById("menu-btn"); 
+    menu_btn.addEventListener('click', toggleMenu); 
+    function toggleMenu() {
+        document.querySelector("body").classList.toggle("active");
+    }
+</script>-->
+</html>

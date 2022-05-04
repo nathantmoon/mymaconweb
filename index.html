@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MyMaconLog</title>
+    <script src="./indexScript.js" async></script>
+    <link rel="stylesheet" href="siteStyles.css">
+</head>
+<body>
+    <div class="wrapper" id="login-wrapper">
+        <div id="login-left">
+            <div class="showcase-image"></div>
+        </div>
+        <div id="login-right">
+            <div id="login">
+                <div id="login-logo">
+                    <img src="images/rmclogocolor.png" alt="rmc-logo">
+                    <h1>MyMaconLog</h1>
+                </div>
+                <div class="start-options">
+                    <button type="button" class="primary-btn login-btn" id="create-new-btn">Create New CourseLog</button>
+                    <form class="input-field" id="input-new">
+                        <label>Enter name</label>
+                        <div class="name-field-line">
+                            <input class="text-input" type="text" name="name-input" id="name-input" placeholder="name">
+                            <button type="submit" class="primary-btn inline-btn" id="new-go-btn">Go</button>
+                        </div>
+                    </form>
+                    <div class="or">
+                        <hr class="bar">
+                        <span>OR</span>
+                        <hr class="bar">
+                    </div>
+                    <button type="button" class="primary-btn login-btn" id="upload-btn">Upload CourseLog</button>
+                    <form class="input-field" id="input-upload">
+                        <div class="upload-field-line">
+                            <input type="file" name="file-upload" id="file-upload">
+                            <button type="submit" class="primary-btn inline-btn" id="upload-submit-btn"><i class="fas fa-file-upload"></i>Upload</button>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+            <footer>
+                <p>Unofficial Advising Tool</p>
+                <div class="login-links">
+                    <a href="https://www.rmc.edu/">RM-C</a> |
+                    <a href="https://mymaconweb.rmc.edu/ics">MyMaconWeb</a> |
+                    <a href="https://www.rmc.edu/offices/registrar">RM-C Registrar's Office</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

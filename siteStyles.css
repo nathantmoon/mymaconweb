@@ -1,0 +1,782 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* ===== Site-wide Variables ===== */
+:root {
+    /* === Colors === */ 
+    --black: #000;
+    --yellow: #ffcc00; 
+    --light-yellow: hsla(48, 100%, 50%, 0.3);
+    --yellow-secondary: #E8A90C; 
+    --gray: #808080; 
+    --light-gray: hsl(0, 0%, 50%, 80%);
+    --lighter-gray: rgba(128, 128, 128, 0.502); 
+    --dark-blue: #005096; 
+    --light-blue: #00A9E0; 
+    --background: #eeeeee; 
+
+    /* === Sizes === */ 
+    --border-radius-size: 30px; 
+    --border-radius-size-secondary: 0.3rem; 
+    --border-radius-size-btn: .3rem; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+    transition: .5s; 
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--background);
+}
+
+/* === NAVIGATION STYLES === */ 
+.wrapper .sidenav {
+    background-color: var(--black);
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1; 
+    height: 100vh; 
+    width: 250px; 
+    transition: all 0.5s ease;
+    color: white; 
+    overflow: hidden; 
+}
+
+.wrapper .sidenav .menu-options {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    margin: 1rem;
+    margin-top: .3rem; 
+    height: calc(100% - 4.5rem);
+}
+
+.wrapper .sidenav .logo {
+    display: flex; 
+    flex-direction: row;
+    gap: .6rem;
+    align-items: center; 
+    padding: .5rem 1rem .5rem 1rem;
+}
+
+.wrapper .sidenav .logo img {
+    width: 44px; 
+    height: auto; 
+}
+
+.wrapper .sidenav h3 {
+    padding-top: .4rem;
+    font-weight: 300; 
+    font-size: 1.2rem; 
+}
+
+.wrapper .sidenav ul {
+    list-style-type: none;
+}
+.wrapper .sidenav ul li a {
+    display: block; 
+    margin-bottom: .2rem; 
+    padding: .5rem .1rem .5rem .35rem;
+    font-size: 1rem;
+    text-decoration: none; 
+    color: white; 
+    border-radius: var(--border-radius-size-secondary);
+    position: relative;
+    transition: none; 
+}
+
+.links ul li a .option-icon {
+    width: 1.5rem; 
+    display: inline-block;
+    text-align: center; 
+    transition: none; 
+}
+
+.wrapper .sidenav .active {
+    color: black; 
+    background-color: white; 
+}
+
+.wrapper .sidenav ul li a:hover {
+    color: black;
+    background-color: white;
+}
+
+/* === WRAPPER LEVEL STYLES === */
+.main {
+    margin-left: 250px; 
+} 
+
+body.active .wrapper .sidenav {
+    margin-left: -250px; 
+}
+
+body.active .wrapper .main {
+    margin-left: 0; 
+    width: 100%; 
+}
+
+.grid {
+    display: grid; 
+    height: calc(100vh - 4.5rem);
+    overflow-y: auto;
+    margin: 0 1rem 1rem 1rem;
+    gap: 1rem;
+    border-radius: var(--border-radius-size); 
+}
+
+.content-area {
+    border-radius: var(--border-radius-size);
+    display: flex; 
+    flex-direction: column; 
+    flex: 1 1 100%; 
+    gap: 1rem; 
+    align-items: center; 
+    justify-content: flex-start; 
+    overflow-y: auto; 
+    background: transparent;
+    width: 100%; 
+    height: auto; 
+}
+
+.content-box {
+    background-color: #ffffff; 
+    border-radius: var(--border-radius-size); 
+    width: 100%; 
+    padding: 1rem; 
+    flex: 1 1 30%;
+}
+
+.content-box-content {
+    margin-top: .35rem; 
+    flex: 1 0; 
+    overflow: hidden; 
+}
+
+.content-box-title {
+    color: var(--gray);
+    width: 100%;
+    border-bottom: 2px solid var(--gray); 
+}
+
+.content-box-title h1 {
+    font-weight: 400;
+    font-size: 1.15rem; 
+}
+
+.content-box-content p {
+    font-size: .9rem; 
+    font-weight: 700; 
+    font-style: italic;
+}
+
+/* === login styles === */
+#login-wrapper {
+    display: flex;
+    flex-direction: row; 
+    overflow: hidden; 
+    color: white; 
+}
+
+#login-left {
+    background-color: #393939; 
+    background-image: url('images/indexBackground.svg');
+    background-blend-mode: overlay;
+    background-size: 120%; 
+    width: 150%;
+    flex: 1; 
+    flex-basis: 6; 
+}
+
+#login-right {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: var(--black);
+    flex: 1;
+    flex-basis: 2;  
+    height: 100vh; 
+}
+
+#login-logo {
+    display: flex;
+    gap: .75rem; 
+    color: white; 
+    align-items: center; 
+    margin-bottom: 8vh; 
+    width: 100%; 
+    justify-content: center; 
+}
+
+#login-logo img {
+    width: 70px; 
+}
+
+#login-logo h1 {
+    padding-top: .5rem; 
+    font-size: 1.5rem; 
+    font-weight: 300; 
+    
+}
+
+#login {
+    margin-top: 10vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 70%; 
+    padding-bottom: 8vh; 
+}
+
+.start-options {
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;  
+}
+
+#login input {
+    width: 100%; 
+
+}
+
+#login label {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    font-weight: 500; 
+}
+
+#login .input-field {
+    margin-top: .75rem; 
+    width: 100%; 
+    display: none; 
+}
+
+#login .name-field-line {
+    display: flex; 
+    gap: .25rem; 
+}
+
+#login .upload-field-line {
+    display: flex; 
+    gap: .25rem; 
+}
+
+#login .text-input {
+    background: #393939; 
+    border: 1px solid gray; 
+    border-radius: var(--border-radius-size-secondary); 
+    padding: 0.5rem; 
+    font-size: 1rem; 
+    color: white; 
+}
+
+#login .text-input::placeholder {
+    color: gray; 
+}
+
+.text-input:focus {
+    outline: none; 
+}
+
+#login .login-btn {
+    width: 100%; 
+}
+
+#upload-btn {
+    font-size: 1rem; 
+    width: 100%;
+}
+
+#go-btn {
+    width: 20%;
+}
+
+#login .inline-btn {
+    border-color: var(--yellow); 
+}
+
+#login .inline-btn:hover {
+    border-color: var(--yellow-secondary);
+}
+
+.or {
+    width: 60%;
+    display: flex; 
+    flex-direction: row; 
+    margin-bottom: 1.2rem;
+    margin-top: 1rem;  
+    align-items: center; 
+    justify-content: center;  
+}
+
+#login .or .bar {
+    flex: auto; 
+    border: none; 
+    height: 1px; 
+    background: white; 
+}
+
+#login .or span {
+    padding: 0 0.8rem; 
+}
+hr .bar {
+    width: 100%;
+
+}
+footer {
+    margin-top: 10vh;  
+    text-align: center; 
+    width: 80%; 
+}
+footer .login-links {
+    margin-top: .25rem; 
+}
+footer .login-links a {
+    color: white;
+    font-size: 0.9rem; 
+    text-decoration: none; 
+    text-align: center; 
+}
+
+/* button */ 
+.primary-btn {
+    display: inline-block; 
+    background-color: var(--yellow);
+    border-radius: var(--border-radius-size-secondary); 
+    transition: 0.5s;
+    padding: .5rem .5rem .5rem .5rem;
+    font-size: 1rem; 
+    border: 1px solid black; 
+    cursor: pointer; 
+}
+
+.secondary-btn {
+    display: inline-block; 
+    background-color: var(--lighter-gray);
+    border-radius: .5rem; 
+    transition: 0.5s;
+    padding: .5rem .5rem .5rem .5rem;
+    font-size: 1rem; 
+    border: 1px solid black; 
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background-color: var(--yellow-secondary);
+}
+
+.secondary-btn:hover {
+    background-color: var(--light-gray);
+}
+
+#end-btn {
+    text-align: left; 
+    padding: .5rem .1rem .5rem .35rem;
+    width: 100%; 
+    font-size: 1rem; 
+}
+
+#logout-btn .button-icon {
+    width: 1.5rem; 
+    display: inline-block; 
+    text-align: center; 
+}
+
+#menu-btn {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 50%;
+    border: none; 
+    background-color: transparent;
+    padding: .5rem;  
+    margin-top: .75rem; 
+    margin-left: .5rem; 
+    margin: .75rem .5rem .75rem .5rem; 
+    transition: .5s; 
+    position: sticky; 
+    top: 0.75rem; 
+}
+
+#menu-btn:hover {
+    background-color: #d3d3d3;
+}
+
+
+/* === Dashboard styles === */
+#dash-grid {
+    grid-template-columns: 1.75fr 3fr;
+    grid-template-rows: 1fr; 
+    grid-template-areas: 
+        "column1 column2";
+}
+
+#dash-left .content-area {
+    grid-area: column1 ;
+}
+
+#dash-right .content-area {
+    grid-area: column2;
+}
+
+#dash-left .content-box-title {
+    border: none; 
+}
+#dash-left .content-box-title h1 {
+    color: var(--light-gray);
+    font-size: 1rem; 
+}
+
+#welcome-btns {
+    display: flex; 
+    justify-content: space-evenly; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.welcome-btn {
+    width: 40%; 
+}
+
+#welcome img{ 
+    float: right; 
+}
+
+
+/* checklist course items */
+
+.checklist-row {
+    display: flex;
+    align-items: center; 
+    padding: .35rem .25rem;
+    margin: .25rem  0 .25rem 0;
+    border-radius: var(--border-radius-size-secondary)
+}
+
+.title-row {
+    background-color: var(--black);
+    color: white; 
+}
+
+.sub-title-row {
+    background-color: var(--lighter-gray); 
+    color: black;
+    margin-left: 1.5rem; 
+}
+.status-icon {
+    font-size: 1.2rem; 
+    width: 2rem; 
+    text-align: center; 
+}
+
+.checklist-course-list {
+    margin-left: 3rem; 
+}
+
+#wellness-course-list, #elective-course-list {
+    margin-left: 0; 
+}
+
+.course-row .course-code {
+    font-weight: 700; 
+    text-align: left; 
+}
+
+.course-row .course-name {
+    text-align: left;
+    margin-left: .5rem; 
+
+}
+
+.empty-row .underline-empty {
+    width: 50%; 
+    height: 1rem; 
+    border-bottom: 2px solid black; 
+}
+/* Progress Trackers */
+#dash-left .content-box { 
+    display: flex; 
+    flex-direction: column; 
+    background-color: transparent;
+}
+.progress-trackers {
+    display: flex; 
+    flex-direction: column; 
+    gap: .70rem; 
+    margin-top: .25rem;
+    flex: 1 0; 
+    font-size: .85rem; 
+}
+
+.tracker {
+    padding: .75rem; 
+    border: 2px solid var(--light-gray);
+    color: var(--light-gray);
+    border-radius: var(--border-radius-size-secondary);
+}
+
+.tracker-title-row {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%; 
+    margin-bottom: .5rem;  
+}
+
+.progress-bar-track {
+    display: flex; 
+    align-items: center; 
+    width: 100%; 
+    height: .5rem; 
+    background-color: hsl(0, 0%, 50%, 20%);
+    border-radius: var(--border-radius-size);
+}
+
+.progress-bar {
+    margin: 0 .1rem 0 .1rem; 
+    width: 5%; 
+    height: .3rem; 
+    background-color: var(--light-gray); 
+    border-radius: var(--border-radius-size);
+}
+
+/* === Search Styles === */
+#search-grid {
+    grid-template-columns: 1.5fr 3fr;
+    grid-template-rows: 1fr; 
+    grid-template-areas: 
+        "column1 column2";
+}
+
+#search-left {
+    grid-area: column1; 
+}
+
+.search-options {
+    margin: 1rem 0 1.35rem 0; 
+}
+.search-option {
+    margin-bottom: 1rem; 
+}
+.content-box-content select {
+    width: 100%; 
+    padding: .5rem .5rem .5rem .5rem;
+    font-size: 1rem; 
+}
+
+.search-btn {
+    margin-top: 0rem; 
+    width: 100%; 
+}
+
+.add-btns {
+    display: flex; 
+    justify-content: space-between;
+    margin: .25rem 0 0 0rem; 
+}
+
+.add-panel-btn {
+    width: 48%; 
+}
+
+#add-panel p {
+    font-size: 1.25rem; 
+}
+
+#search-left .content-box {
+    flex: 0 1; 
+}
+
+#success-box {
+    color: black;
+    background-color: var(--light-yellow);
+    border-radius: var(--border-radius-size-secondary); 
+    border: 1px solid var(--black);
+    padding: .25rem;
+    margin-top: .65rem; 
+}
+
+#success-box p { 
+    font-weight: 400; 
+    font-style: normal; 
+    transition: none; 
+    font-size: .8rem; 
+}
+/* style results table */
+#search-right {
+    grid-area: column2;
+}
+
+#search-right .content-box {
+    height: 100%;
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+#search-right .content-box-content {
+    display: flex; 
+    flex-direction: column;
+
+}
+
+.results-row.table-header {
+    background-color: var(--lighter-gray);
+    font-weight: 500;
+    border: none; 
+    border-radius: var(--border-radius-size-secondary);
+}
+
+.results-row {
+    display: flex;
+    align-items: center; 
+    /*padding: .35rem .25rem;
+    margin: .25rem  0 .25rem 0;*/
+    gap: .5rem; 
+    padding: .35rem;
+    border-bottom: 1px solid var(--gray);
+}
+
+.results-select {
+    width: 10%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.results-code {
+    width: 20%; 
+
+}
+
+.results-name {
+    width: 48%;
+}
+
+.results-designations {
+    width: 28%; 
+}
+
+.results-box {
+    overflow-y: auto;
+}
+
+/* === log styles === */
+#courselog-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr; 
+    grid-template-areas: 
+        "column1";
+}
+
+#courselog-column .content-box {
+    height: 100%;
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+#courselog-column .content-box-content {
+    display: flex; 
+    flex-direction: column; 
+}
+
+.courselog-options {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: .35rem; 
+}
+
+.courselog-btns {
+    display: flex; 
+    justify-content: end; 
+    gap: .5rem; 
+    width: 40%; 
+}
+.courselog-options p {
+    font-size: 1.25rem; 
+}
+
+.courselog-btn {
+    width: 50%; 
+}
+
+#courselog-column #success-box {
+    margin-top: 0; 
+    margin-bottom: .35rem; 
+}
+
+/* === Media Queries === */
+
+@media (max-width:1000px) {
+    .grid { 
+        height: 100%; 
+        overflow-y: auto; 
+    }
+
+    #dash-grid {
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-areas: 
+            "column2"
+            "column1"; 
+    }
+
+    #dash-left {
+        grid-area: column1;
+    }
+
+    #dash-right {
+        grid-area: column2;
+    }
+
+    #search-grid {
+        grid-template-columns: 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-areas: 
+            "column1"
+            "column2"; 
+    }
+
+    #search-left {
+        grid-area: column1;
+    }
+
+    #search-right {
+        grid-area: column2;
+    }
+
+    #welcome-btns {
+        flex-direction: column; 
+        gap: 1rem; 
+    }
+
+    .welcome-btn {
+        width: 90%; 
+    }
+
+    .sub-title-row {
+        margin-left: 0; 
+    }
+    .checklist-course-list {
+        margin-left: 0; 
+    }
+}
+
+@media(min-width: 1200px) {
+    #login-left {
+        flex: 6; 
+    }
+
+    #login-right {
+        flex: 4; 
+    }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseLog | MyMaconLog</title>
+    <script src="https://kit.fontawesome.com/d2f0974a28.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="siteStyles.css">
+    <script src="./FileSaver.js"></script>
+    <script src="sitefncts.js"></script>
+    <script src="courselogScript.js" async></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidenav" id="sidenav">
+            <div class="logo">
+                <img src="images/rmclogocolor.png" alt="logo">
+                <h3>MyMaconLog</h3>
+            </div>
+            <div class="menu-options">
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href="./dash.html">
+                                <span class="option-icon"><i class="fas fa-th-large"></i></span>
+                                <span class="option-label">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="active"> 
+                                <span class="option-icon"><i class="fas fa-clipboard-list"></i></span>
+                                <span class="option-label">CourseLog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./search.html">
+                                <span class="option-icon"><i class="fas fa-search-plus"></i></span>
+                                <span class="option-label">Search Courses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-btns">
+                    <button type="button" class="primary-btn" id="end-btn">
+                        <span class="button-icon"><i class="fas fa-sign-out-alt fa-rotate-180"></i></span>
+                        <span>End Session</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <button id="menu-btn"><i class="fas fa-bars"></i></button>
+            <div class="grid" id="courselog-grid">
+                <div class="content-area" id="courselog-column">
+                    <div class="content-box">
+                        <div class="content-box-title">
+                            <h1>CourseLog</h1>
+                        </div>
+                        <div class="content-box-content" id="courselog-panel-content">
+                            <div class="courselog-options">
+                                <p id="select-count"><span id="num-selected">0</span> Courses Selected</p>
+                                <div class="courselog-btns">
+                                    <button type="button" class="secondary-btn courselog-btn" id="discard-btn">Discard Selections</button>
+                                    <button type="button" class="primary-btn courselog-btn" id="delete-btn">
+                                        <span><i class="fas fa-trash-alt"></i></span>
+                                        <span>Delete Courses</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="results-row table-header" id="courselog-table-header">
+                                <span class="results-select results-header 
+                                results-column"><i class="far fa-check-square"></i></span>
+                                <span class="results-code results-header 
+                                results-column">Code</span> 
+                                <span class="results-name results-header 
+                                results-column">Name</span>
+                                <span class="results-designations 
+                                results-header results-column">Designations</span>
+                            </div>
+                            <div class="results-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
